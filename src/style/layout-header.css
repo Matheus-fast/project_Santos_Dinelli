@@ -132,6 +132,48 @@ html, body{
     width: 220px;
 }
 
+@media (max-height: 775px) {
+    .header {
+        height: 85px;
+    }
+
+    .fake-tres-linhas {
+        width: 80px;
+        height: 45px;
+        margin-top: -18px;
+        margin-left: 19px;
+    }
+    
+    .tres-linhas {
+        width: 60px;
+        height: 40px;
+        margin-top: -18px;
+        margin-left: 30px;
+    }
+
+    
+    .menu-lateral ul li:first-child {
+        margin-top: 60px;
+    }
+    
+    .menu-lateral ul li{
+        font-size: 18px;
+    }
+
+    .menu-fixo li a {
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    .menu-fixo li:first-child {
+        margin-left: -100px;
+    }
+
+    .logo {
+        width: 150px;
+    }
+}
+
 @media (max-height: 700px) {
     .header {
         height: 70px;
@@ -228,6 +270,7 @@ html, body{
     }
 
 }
+
 
 @media (max-width: 768px) {
     .header {

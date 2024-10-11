@@ -26,8 +26,8 @@ if((!isset($_SESSION['id'])) and (!isset($_SESSION['usuario'])) and (!isset($_SE
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Financeiro Mensal</title>
-    <link rel="stylesheet" href="../style/layout-header.css">
     <link rel="stylesheet" href="../style/financeiro/mensal.css">
+    <link rel="stylesheet" href="../style/layout-header.css">
     <link rel="shortcut icon" href="../images/icons/logo.ico" type="image/x-icon">
 
 </head>

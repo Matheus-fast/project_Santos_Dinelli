@@ -67,19 +67,52 @@
         $(document).ready(function() {
             $('#reenviar-codigo').click(function(e) {
                 e.preventDefault();
+                $('#loadingText').text('Reenviando código...');
+                $('#loadingOverlay').css('display', 'flex');
                 $.ajax({
                     url: 'enviar_novo_codigo.php',
                     type: 'POST',
                     dataType: 'json',
                     success: function(response) {
+                        $('#loadingOverlay').css('display', 'none');
                         if (response.success) {
-                            alert('Novo código enviado para o seu e-mail.');
+                            $('#message').text('Novo código enviado para o seu e-mail.').removeClass('error-message').addClass('success-message').show();
                         } else {
-                            alert('Erro ao enviar novo código: ' + response.message);
+                            $('#message').text('Erro ao enviar novo código: ' + response.message).removeClass('success-message').addClass('error-message').show();
                         }
                     },
-                    error: function() {
-                        alert('Erro ao processar a solicitação. Tente novamente.');
+                    error: function(xhr, status, error) {
+                        $('#loadingOverlay').css('display', 'none');
+                        $('#message').text('Erro ao processar a solicitação. Tente novamente. Detalhes: ' + error).removeClass('success-message').addClass('error-message').show();
+                    }
+                });
+            });
+
+            $('#auth-form').submit(function(e) {
+                e.preventDefault();
+                $('#loadingText').text('Validando...');
+                $('#loadingOverlay').css('display', 'flex');
+                $.ajax({
+                    url: $(this).attr('action'),
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    dataType: 'json',
+                    success: function(response) {
+                        $('#loadingOverlay').css('display', 'none');
+                        if (response.success) {
+                            $('#loadingText').text('Redirecionando...');
+                            $('#loadingOverlay').css('display', 'flex');
+                            setTimeout(function() {
+                                window.location.href = 'redefinir.php';
+                            }, 2000);
+                        } else {
+                            $('#message').text(response.message).removeClass('success-message').addClass('error-message').show();
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        $('#loadingOverlay').css('display', 'none');
+                        console.log(xhr.responseText); // Log the full response for debugging
+                        $('#message').text('Erro ao processar a solicitação. Tente novamente. Detalhes: ' + error).removeClass('success-message').addClass('error-message').show();
                     }
                 });
             });
