@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <title>Redefinir Senha</title>
         <link rel="stylesheet" href="../src/style/login/redefinir.css">
         <link rel="shortcut icon" href="../src/images/icons/logo.ico" type="image/x-icon">
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     </head>
 
     <body>
@@ -103,10 +103,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>         
 
             <div class="input-group">
-                <input type="password" id="new-password" name="nova_senha" required>
-                <span class="highlight"></span>
-                <label for="new-password">Nova Senha</label>
-            </div>
+                    <input type="password" id="new-password" name="nova_senha" required>
+                    <span class="highlight"></span>
+                    <label for="new-password">Nova Senha</label>
+                    <span class="password-toggle" onclick="togglePassword('new-password', this)">
+                        <i class="fas fa-eye"></i>
+                    </span>
+                </div>
+            
             <div class="password-strength">
                 <div class="password-strength-meter"></div>
             </div>
@@ -122,6 +126,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="password" id="confirm-password" name="confirma_senha" required>
                     <span class="highlight"></span>
                     <label for="confirm-password">Confirmar Senha</label>
+                    <span class="password-toggle" onclick="togglePassword('confirm-password', this)">
+                        <i class="fas fa-eye"></i>
+                    </span>
                 </div>
                 <div class="password-strength">
                     <div class="password-strength-meter"></div>
@@ -138,6 +145,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
     </body>
+    
+    <script>
+    function togglePassword(inputId, toggleElement) {
+        const passwordInput = document.getElementById(inputId);
+        const toggleIcon = toggleElement.querySelector('i');
+        
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            toggleIcon.classList.remove('fa-eye');
+            toggleIcon.classList.add('fa-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            toggleIcon.classList.remove('fa-eye-slash');
+            toggleIcon.classList.add('fa-eye');
+        }
+        
+        // Adiciona a classe para a animação
+        toggleElement.classList.add('animate');
+        
+        // Remove a classe após a animação terminar
+        setTimeout(() => {
+            toggleElement.classList.remove('animate');
+        }, 300);
+    }
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

@@ -176,3 +176,41 @@ body {
     font-size: 15px;
     cursor: pointer;
 }
+
+/* Estilos atualizados para o ícone de visualização de senha */
+.password-toggle {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.password-toggle:hover {
+    color: #228d02;
+}
+
+.password-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.password-toggle.clicked i {
+    transform: scale(1.2);
+}
+
+.input-group input[type="password"],
+.input-group input[type="text"] {
+    padding-right: 30px;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.password-toggle.animate i {
+    animation: pulse 0.3s ease-in-out;
+}

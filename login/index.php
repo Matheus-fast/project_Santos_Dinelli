@@ -24,7 +24,7 @@ include_once "./conexao.php";
     <title>Login</title>
     <link rel="stylesheet" href="../src/style/login/index.css">
     <link rel="shortcut icon" href="../src/images/icons/logo.ico" type="image/x-icon">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>
@@ -211,6 +211,9 @@ include_once "./conexao.php";
                         <input type="password" name="senha_usuario" id="password" placeholder="Digite a senha">
                         <span class="highlight"></span>
                         <label for="password">Senha</label>
+                        <span class="password-toggle" onclick="togglePassword()">
+                            <i class="fas fa-eye"></i>
+                        </span>
                     </div>
                     
                     <div class="lembrar-me">
@@ -227,5 +230,30 @@ include_once "./conexao.php";
     <!-- Fim do formulário de login -->
 
 </body>
+<script>
+function togglePassword() {
+    const passwordInput = document.getElementById('password');
+    const toggleIcon = document.querySelector('.password-toggle i');
+    const toggleContainer = document.querySelector('.password-toggle');
+    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleIcon.classList.remove('fa-eye');
+        toggleIcon.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        toggleIcon.classList.remove('fa-eye-slash');
+        toggleIcon.classList.add('fa-eye');
+    }
+    
+    // Adiciona a classe para a animação
+    toggleContainer.classList.add('animate');
+    
+    // Remove a classe após a animação terminar
+    setTimeout(() => {
+        toggleContainer.classList.remove('animate');
+    }, 300);
+}
+</script>
 
 </html>

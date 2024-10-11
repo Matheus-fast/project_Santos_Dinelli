@@ -176,6 +176,11 @@ include_once "./conexao.php";
 
             <form action="" method="post" class="login-form" id="login-form">
 
+            <div class="loading-overlay" id="loadingOverlay">
+                <div class="loading-spinner"></div>
+                <div class="loading-text">Enviando o codigo...</div>
+            </div>
+
             <div style="margin-bottom: 15px;">
                         <?php
                         // Imprimir a mensagem da sessão
@@ -198,4 +203,12 @@ include_once "./conexao.php";
         </div>
 
     </body>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            // Show the loading overlay
+            document.getElementById('loadingOverlay').style.display = 'flex';
+        });
+    </script>
+
 </html>

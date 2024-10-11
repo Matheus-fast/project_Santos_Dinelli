@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Oct 01, 2024 at 02:26 PM
--- Server version: 8.0.30
--- PHP Version: 8.1.10
+-- Tempo de geração: 11-Out-2024 às 00:42
+-- Versão do servidor: 8.0.30
+-- versão do PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `santos_dinelli`
+-- Banco de dados: `santos_dinelli`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `clientes`
+-- Estrutura da tabela `clientes`
 --
 
 CREATE TABLE `clientes` (
@@ -36,31 +36,42 @@ CREATE TABLE `clientes` (
   `data_nascimento` date DEFAULT NULL,
   `telefone` varchar(15) DEFAULT NULL,
   `endereco` varchar(255) DEFAULT NULL,
-  `bairro` varchar(100) DEFAULT NULL,
-  `cep` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `cidade` varchar(100) DEFAULT NULL,
-  `complemento` varchar(100) DEFAULT NULL,
+  `bairro` varchar(115) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `cep` varchar(10) DEFAULT NULL,
+  `cidade` varchar(115) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `complemento` varchar(115) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `forma_pagamento` varchar(50) DEFAULT NULL,
   `razao_social` varchar(100) DEFAULT NULL,
   `email_cliente_pj` varchar(100) DEFAULT NULL,
-  `cnpj` varchar(14) DEFAULT NULL,
+  `cnpj` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `telefone_pj` varchar(15) DEFAULT NULL,
   `endereco_pj` varchar(255) DEFAULT NULL,
   `cep_pj` varchar(10) DEFAULT NULL,
-  `referencia_pj` varchar(100) DEFAULT NULL
+  `referencia_pj` varchar(100) DEFAULT NULL,
+  `bairro_pj` varchar(115) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `cidade_pj` varchar(115) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `complemento_pj` varchar(115) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `forma_pagamento_pj` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `clientes`
+-- Extraindo dados da tabela `clientes`
 --
 
-INSERT INTO `clientes` (`id`, `tipo_pessoa`, `nome_cliente`, `email_cliente`, `cpf_cliente`, `data_nascimento`, `telefone`, `endereco`, `bairro`, `cep`, `cidade`, `complemento`, `forma_pagamento`, `razao_social`, `email_cliente_pj`, `cnpj`, `telefone_pj`, `endereco_pj`, `cep_pj`, `referencia_pj`) VALUES
-(44, 1, 'Gabriel Braga Gomes', 'gabrielbraga1008@gmail.com', '432.142.531-53', '2001-02-14', '(11) 92341-5321', 'rua abacaxi listrado 1532', 'vila moraes', '04321-532', 'são paulo', 'em frente a padoca', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `clientes` (`id`, `tipo_pessoa`, `nome_cliente`, `email_cliente`, `cpf_cliente`, `data_nascimento`, `telefone`, `endereco`, `bairro`, `cep`, `cidade`, `complemento`, `forma_pagamento`, `razao_social`, `email_cliente_pj`, `cnpj`, `telefone_pj`, `endereco_pj`, `cep_pj`, `referencia_pj`, `bairro_pj`, `cidade_pj`, `complemento_pj`, `forma_pagamento_pj`) VALUES
+(48, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'dadas', 'ddadas@gmail.com', '45.435.345/3535-43', '(41) 2341-3423', 'das', '33213-133', 'da', 'dad', 'da', 'dad', NULL),
+(49, 1, 'leo', 'leodudasd@gmail.com', '433.242.344-42', '1111-11-11', '(12) 31321-3123', 'dasdada', 'dada', '32131-231', 'dada', 'dadad', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(50, 1, 'leo', 'leodudasd@gmail.com', '433.242.344-42', '0111-11-11', '(11) 11111-1111', '111111111111dasd', 'dsadasda', '11111-111', 'dasdsad', 'asdasdasda', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(51, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'dsad', 'ddadada@gmail.com', '43.324.234/2342-34', '(23) 4523-4321', 'dasdasd', '33213-133', 'adasd', 'adad', 'asd', 'adasd', NULL),
+(52, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'dsad', 'ddadada@gmail.com', '43.324.234/2342-34', '(23) 4523-4321', 'dasdasd', '33213-133', 'adasd', 'adad', 'asd', 'adasd', NULL),
+(53, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'dadas', 'ddadada@gmail.com', '45.435.345/3535-43', '(41) 2341-3423', 'das', '33213-133', 'da', 'dad', 'da', 'dad', 'boleto'),
+(54, 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'dadas', 'ddadada@gmail.com', '45.435.345/3535-43', '(41) 2341-3423', 'das', '33213-133', 'da', 'dad', 'da', 'dad', 'boleto'),
+(55, 1, 'leo', 'leodudasd@gmail.com', '433.242.344-42', '1111-11-11', '(32) 14123-4233', 'dasdadadasd', 'asdasd', '32131-231', 'asdadsa', 'dadasda', 'Dinheiro', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `events`
+-- Estrutura da tabela `events`
 --
 
 CREATE TABLE `events` (
@@ -74,18 +85,19 @@ CREATE TABLE `events` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `events`
+-- Extraindo dados da tabela `events`
 --
 
 INSERT INTO `events` (`id`, `title`, `color`, `start`, `end`, `obs`, `servico`) VALUES
 (101, 'Etec Heliópolis – Arquiteto Ruy Ohtake', '#FF4500', '2024-10-03 13:00:00', '2024-10-03 18:20:00', 'Apresentação pré banca', 'Visita'),
+(103, 'Etec Heliópolis – Arquiteto Ruy Ohtake', '#40E0D0', '2024-10-02 14:00:00', '2024-10-02 14:30:00', 'Levar maquininha', 'Visita'),
 (104, 'Aline', '#228B22', '2024-10-09 11:00:00', '2024-10-09 11:11:00', 'ada', 'Higienização'),
 (105, 'Izael', '#1C1C1C', '2024-10-16 13:00:00', '2024-10-16 14:30:00', 'Verificar gás', 'Desinstalação');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `financas`
+-- Estrutura da tabela `financas`
 --
 
 CREATE TABLE `financas` (
@@ -96,11 +108,11 @@ CREATE TABLE `financas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `financas`
+-- Extraindo dados da tabela `financas`
 --
 
 INSERT INTO `financas` (`id`, `mes`, `recebimento`, `despesa`) VALUES
-(25, 'Janeiro', 21.00, 11.00),
+(25, 'Janeiro', 1.00, 1.00),
 (26, 'Julho', 17.00, 17.00),
 (27, 'Março', 46.00, 80.00),
 (28, 'Maio', 80.00, 50.00),
@@ -115,7 +127,7 @@ INSERT INTO `financas` (`id`, `mes`, `recebimento`, `despesa`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estrutura da tabela `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -128,7 +140,7 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `usuarios`
+-- Extraindo dados da tabela `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `usuario`, `senha_usuario`, `codigo_autenticacao`, `data_codigo_autenticacao`) VALUES
@@ -140,57 +152,57 @@ INSERT INTO `usuarios` (`id`, `nome`, `usuario`, `senha_usuario`, `codigo_autent
 (6, 'Matheus Ribeiro', 'matheusribeiro2409@outlook.com ', '$2y$10$eIaKTCE3Y.P.src/1C2pF.7dml6VAd0bE09SOr4rir0.VFfVt2XAi', 630028, '2024-09-27 10:15:30');
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `clientes`
+-- Índices para tabela `clientes`
 --
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `events`
+-- Índices para tabela `events`
 --
 ALTER TABLE `events`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `financas`
+-- Índices para tabela `financas`
 --
 ALTER TABLE `financas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `usuarios`
+-- Índices para tabela `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `clientes`
+-- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
--- AUTO_INCREMENT for table `events`
+-- AUTO_INCREMENT de tabela `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
--- AUTO_INCREMENT for table `financas`
+-- AUTO_INCREMENT de tabela `financas`
 --
 ALTER TABLE `financas`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `usuarios`
+-- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;

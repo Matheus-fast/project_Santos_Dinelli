@@ -25,6 +25,7 @@ body {
     max-width: 90%;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .auth-header {
@@ -116,17 +117,26 @@ body {
     box-shadow: 0 5px 15px rgba(46,204,113,0.3);
 }
 
-.reset-container {
-    animation: fadeIn 0.5s ease-out;
+.message {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+}
+
+.success-message {
+    color: #228d02;
+    background-color: #e8f5e9;
+    border: 1px solid #c8e6c9;
 }
 
 .error-message {
-    color: #ff0000;
-    padding-top: 10px;
-    font-size: 14px;
-    text-align: center;
+    color: #d32f2f;
+    background-color: #ffebee;
+    border: 1px solid #ffcdd2;
 }
-
 
 .reenviar {
     text-align: center;
@@ -144,7 +154,36 @@ body {
     color: #145400;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+.loading-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loading-spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #228d02;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #228d02;
 }
