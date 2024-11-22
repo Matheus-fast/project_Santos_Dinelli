@@ -246,6 +246,32 @@ select {
     }
 }
 
+@media (max-width: 1600px) {
+    .input-group {
+        width: 400px;
+        height: 50px;
+    }
+
+    .label-especial {
+        margin-top: 80px !important;
+    }
+
+    label {
+        font-size: 15px;
+    }
+
+    select {
+        height: 25px;
+    }
+
+    .btn-cadastrar {
+        margin-top: 32px;
+        width: 250px;
+        height: 45px;
+        margin-left: 25px;
+    }
+}
+
 @media (max-height: 700px) {
 
     .container {
