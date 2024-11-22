@@ -249,7 +249,11 @@ select {
 @media (max-width: 1600px) {
     .input-group {
         width: 400px;
-        height: 50px;
+        height: 40px;
+    }
+
+    .input-group span {
+        margin-top: -20px;
     }
 
     .label-especial {
@@ -257,7 +261,7 @@ select {
     }
 
     label {
-        font-size: 15px;
+        font-size: 13px!important;
     }
 
     select {
@@ -270,6 +274,11 @@ select {
         height: 45px;
         margin-left: 25px;
     }
+
+    .input-group input:focus ~ label,
+    .input-group input:valid ~ label {
+    top: -30px;
+}
 }
 
 @media (max-height: 700px) {
